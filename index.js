@@ -12,7 +12,7 @@ try {
            return element.slack_id
         }
     });
-    let slackid = data
+    let slackid = data[0].toString();
     console.log(`Actor ${github.context.actor} !`);
     console.log(`Slack Id `+slackid+' !');
     core.setOutput("slackid", slackid);
