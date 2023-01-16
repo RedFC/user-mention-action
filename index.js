@@ -3,9 +3,9 @@ const github = require('@actions/github');
 
 try {
     // `who-to-greet` input defined in action metadata file
-    const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
+    // const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
+    const ArrayOfObjects = core.getInput('who-to-mention-array');
     let parsingArray = JSON.parse(ArrayOfObjects)
-    // const ArrayOfObjects = core.getInput('who-to-greet');
     let data = parsingArray.map(element => {
         if(element.github == github.context.actor){
            return element.slack_id

@@ -1,7 +1,7 @@
 name: 'User-mention'
 description: 'Mention User On Slack'
 inputs:
-  who-to-mention:  # id of input
+  who-to-mention-array:  # id of input
     description: 'Just Pass Array Of Objects Here'
     required: true
 outputs:
