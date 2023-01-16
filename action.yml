@@ -1,9 +1,12 @@
 name: 'User-mention'
 description: 'Mention User On Slack'
 inputs:
+  slack-webhook-url:
+    description: 'slack webhook url required'
+    required: true
   who-to-mention-array:  # id of input
     description: 'Just Pass Array Of Objects Here'
-    required: true
+    required: false
 outputs:
   slackid: 
     description: 'returns user slack id'
