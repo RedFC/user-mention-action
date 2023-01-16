@@ -9777,9 +9777,9 @@ const github = __nccwpck_require__(4467);
 
 try {
     // `who-to-greet` input defined in action metadata file
-    const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
-    github.context.actor = "RedFC"
-    // const ArrayOfObjects = core.getInput('who-to-mention-array');
+    // const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
+    // github.context.actor = "RedFC"
+    const ArrayOfObjects = core.getInput('who-to-mention-array');
     let parsingArray = JSON.parse(ArrayOfObjects)
     let data = parsingArray.map(element => {
         if(element.github == github.context.actor){
