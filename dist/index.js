@@ -9786,7 +9786,7 @@ try {
            return element.slack_id
         }
     });
-    let slackid = data[0].toString();
+    let slackid = data
     console.log(`Actor ${github.context.actor} !`);
     console.log(`Slack Id `+slackid+' !');
     core.setOutput("slackid", slackid);
