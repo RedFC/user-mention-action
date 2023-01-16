@@ -8,7 +8,7 @@ let run =  async () => {
         // const ArrayOfObjects = '[{"name":"Talha Khadim","slack_id":"U040J7B4GD7","github":"talhakhadim"},{"name":"Muhammad Saad","slack_id":"U04167GDGJG","github":"RedFC"},{"name":"Shahrukh Nawaz","slack_id":"U04E5MKD82Y","github":"Shahrukh98"},{"name":"Muhammad Athar","slack_id":"U046CSRL937","github":"athar-mtech"}]';
         // github.context.actor = "RedFC"
         // const url = 'https://hooks.slack.com/services/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';
-        // const url = core.getInput('slack-webhook-url') || process.env.SLACK_WEBHOOK_URL;
+        const url = core.getInput('slack-webhook-url') || process.env.SLACK_WEBHOOK_URL;
         const webhook = new IncomingWebhook(url);
         const ArrayOfObjects = core.getInput('who-to-mention-array');
         let parsingArray = JSON.parse(ArrayOfObjects);
