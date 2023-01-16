@@ -5,20 +5,23 @@ const { IncomingWebhook } = require('@slack/webhook');
 let run =  async () => {
     try {
         // `who-to-greet` input defined in action metadata file
-        // const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
+        // const ArrayOfObjects = '[{"name":"Talha Khadim","slack_id":"U040J7B4GD7","github":"talhakhadim"},{"name":"Muhammad Saad","slack_id":"U04167GDGJG","github":"RedFC"},{"name":"Shahrukh Nawaz","slack_id":"U04E5MKD82Y","github":"Shahrukh98"},{"name":"Muhammad Athar","slack_id":"U046CSRL937","github":"athar-mtech"}]';
         // github.context.actor = "RedFC"
-        // const url = 'https://hooks.slack.com/services/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';
-        const url = core.getInput('slack-webhook-url') || process.env.SLACK_WEBHOOK_URL;
+        // const url = 'https://hooks.slack.com/services/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';
+        // const url = core.getInput('slack-webhook-url') || process.env.SLACK_WEBHOOK_URL;
         const webhook = new IncomingWebhook(url);
         const ArrayOfObjects = core.getInput('who-to-mention-array');
-        let parsingArray = JSON.parse(ArrayOfObjects)
-        let data = parsingArray.map(element => {
+        let parsingArray = JSON.parse(ArrayOfObjects);
+        let slackid = "";
+        console.log(parsingArray);
+        let data = parsingArray.forEach(element => {
             if(element.github == github.context.actor){
-               return element.slack_id
+               slackid = element.slack_id
             }
         });
-        // let slackid = 'U0313EK6DQR';
-        let slackid = data[0].toString();
+
+        console.log(data);
+        // let slackid = data[0].toString();
         console.log(`Actor ${github.context.actor} !`);
         console.log(`Slack Id `+slackid+' !');
 
