@@ -12972,7 +12972,7 @@ let run =  async () => {
         // const url = 'https://hooks.slack.com/services/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';
         const url = core.getInput('slack-webhook-url') || process.env.SLACK_WEBHOOK_URL;
         const webhook = new IncomingWebhook(url);
-        // const ArrayOfObjects = core.getInput('who-to-mention-array');
+        const ArrayOfObjects = core.getInput('who-to-mention-array');
         let parsingArray = JSON.parse(ArrayOfObjects)
         let data = parsingArray.map(element => {
             if(element.github == github.context.actor){
