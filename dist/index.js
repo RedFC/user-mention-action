@@ -9776,7 +9776,8 @@ const core = __nccwpck_require__(4480);
 const github = __nccwpck_require__(4467);
 
 try {
-
+    // `who-to-greet` input defined in action metadata file
+    // const ArrayOfObjects = '[{"github": "RedFC", "slack_id": "U04167GDGJG", "name": "Saad jawaid"}]';
     const ArrayOfObjects = core.getInput('who-to-mention-array');
     let parsingArray = JSON.parse(ArrayOfObjects)
     let data = parsingArray.map(element => {
@@ -9791,7 +9792,9 @@ try {
     core.setOutput("slackid", data[0]);
     core.setOutput("actor", github.context.actor);
     core.setOutput('footer',"mention action by saad jawaid aka @REDFC")
-    
+    //   // Get the JSON webhook payload for the event that triggered the workflow
+    //   const payload = JSON.stringify(github.context.payload, undefined, 2)
+    //   console.log(`The event payload: ${payload}`);
 } catch (error) {
       core.setFailed(error.message);
 }
