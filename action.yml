@@ -10,7 +10,7 @@ outputs:
   actor: # id of output
     description: 'returns user github username';
   footer:
-    description: "footer of action"
+    description: 'footer of action';
 runs:
   using: 'node16'
   main: 'dist/index.js'
