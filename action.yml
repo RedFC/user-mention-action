@@ -1,0 +1,14 @@
+name: 'User-mention'
+description: 'Mention User On Slack'
+inputs:
+  who-to-mention:  # id of input
+    description: 'Just Pass Array Of Objects Here'
+    required: true
+outputs:
+  slackid: # id of output
+    description: 'returns user slack id'
+  actor: # id of output
+    description: 'returns user github username'
+runs:
+  using: 'node16'
+  main: 'index.js'
